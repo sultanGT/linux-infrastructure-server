@@ -90,9 +90,35 @@ if [ "$current_status" != "$previous_status" ]; then
 
 fi
 
+# Send email notification only when health status changes
+if [ "$current_status" != "$previous_status" ]; then
+
+    email_recipient="sultan-malik@hotmail.co.uk"
+
+    email_subject="[$current_status] Linux Infrastructure Alert - $server_name"
+
+    email_body="Server: $server_name
+Previous status: $previous_status
+Current status: $current_status
+Time: $(date)
+
+Check the monitoring log for more details:
+$log_file"
+
+    if printf 'To: %s\nSubject: %s\n\n%s\n' \
+        "$email_recipient" "$email_subject" "$email_body" |
+        msmtp --account=gmail "$email_recipient"; then
+
+        echo "Email notification sent successfully"
+
+    else
+        echo "WARNING: Email notification failed" >&2
+    fi
+
+fi
+
 # Save current status for the next execution
 echo "$current_status" > "$state_file"
 
 exit "$exit_code"
 
-exit "$exit_code"

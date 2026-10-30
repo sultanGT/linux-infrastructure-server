@@ -36,3 +36,28 @@ The project is under active development. Planned improvements include log rotati
 ## Project Goal
 
 Develop practical Linux system administration, monitoring and automation skills through a realistic server environment.
+
+## Automated Email Alerts
+
+The infrastructure monitoring system sends email notifications
+using Gmail SMTP and msmtp.
+
+### Alert Conditions
+- CRITICAL: Nginx stops or the website becomes unavailable.
+- WARNING: Memory or disk usage exceeds 80%.
+- RECOVERY: The server returns to a healthy state.
+
+### Notification Behaviour
+- Alerts are sent only when the overall health status changes.
+- Duplicate notifications are suppressed.
+- Notifications include the hostname, status and timestamp.
+- Email failures are logged without stopping the monitoring script.
+
+### Security
+- SMTP credentials are stored outside the Git repository.
+- Credential files use restricted Linux permissions.
+- AppArmor provides additional access controls.
+
+### Testing
+The notification system was tested by stopping Nginx,
+verifying a critical alert, and restoring the service.
