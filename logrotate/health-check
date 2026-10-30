@@ -1,4 +1,4 @@
-/home/sultan/linux-infrastructure-lab/logs/health-check.log {
+/home/sultan/linux-infrastructure-server/logs/health-check.log {
     su sultan sultan
     daily
     rotate 7

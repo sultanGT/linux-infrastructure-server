@@ -1,4 +1,4 @@
-# Linux Infrastructure Monitoring & Automation Lab
+# Linux Infrastructure Monitoring & Automation
 
 Status: In Progress
 

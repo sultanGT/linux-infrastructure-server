@@ -1,7 +1,0 @@
-[Unit]
-Description=Linux Infrastructure Health Check
-
-[Service]
-Type=oneshot
-User=sultan
-ExecStart=/bin/bash /home/sultan/linux-infrastructure-lab/scripts/health-check.sh

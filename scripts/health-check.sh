@@ -1,5 +1,5 @@
 #!/bin/bash
-log_file="/home/sultan/linux-infrastructure-lab/logs/health-check.log"
+log_file="/home/sultan/linux-infrastructure-server/logs/health-check.log"
 exec > >(tee -a "$log_file") 2>&1
 exit_code=0
 
@@ -54,7 +54,7 @@ else
 fi
 
 # Track the previous monitoring status
-state_file="/home/sultan/linux-infrastructure-lab/state/health-status"
+state_file="/home/sultan/linux-infrastructure-server/state/health-status"
 
 # Read previous status, defaulting to HEALTHY
 previous_status="HEALTHY"
